@@ -18,7 +18,7 @@ const Component = React.forwardRef<any, any>((props, ref) => {
     <FileSelectAutoCompleteFC
       ref={ref as any}
       height="auto"
-      selectedKeys={value.split(',').map((i) => i.trim()).filter((i) => i)}
+      selectedKeys={value?.split(',').map((i) => i.trim()).filter((i) => i)}
       onChange={(v) => {
         setValue(v);
         props.onChange(v);

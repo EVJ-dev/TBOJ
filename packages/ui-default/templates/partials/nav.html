@@ -6,132 +6,116 @@
 </li>
 {%- endmacro -%}
 
+<div class="vernav">
+  <div class="vernav__logo">
+    <a href="/"><img src="https://img.zshfoj.com/zyz_logo.png" width="100%" alt="Logo" /></a>
+  </div>
+  <a href="{{ url('problem_main')}} " class="vernav__item" style="margin-top: 1.6em">
+    <span class="vernav__item__logo"><svg t="1705025425939" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="9762" width="200" height="200"><path d="M854.6 288.7c6 6 9.4 14.1 9.4 22.6V928c0 17.7-14.3 32-32 32H192c-17.7 0-32-14.3-32-32V96c0-17.7 14.3-32 32-32h424.7c8.5 0 16.7 3.4 22.7 9.4l215.2 215.3zM790.2 326L602 137.8V326h188.2zM320 482a8 8 0 0 0-8 8v48a8 8 0 0 0 8 8h384a8 8 0 0 0 8-8v-48a8 8 0 0 0-8-8H320z m0 136a8 8 0 0 0-8 8v48a8 8 0 0 0 8 8h184a8 8 0 0 0 8-8v-48a8 8 0 0 0-8-8H320z" fill="#dddddd" p-id="9763"></path></svg></span>
+    <p>题库</p>
+  </a>
+  <a href="{{ url('training_main')}} " class="vernav__item">
+    <span class="vernav__item__logo"><svg t="1705025332737" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="8981" width="200" height="200"><path d="M854.2 306.6L611.3 72.9c-6-5.7-13.9-8.9-22.2-8.9H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h277l219 210.6V824c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V329.6c0-8.7-3.5-17-9.8-23z" p-id="8982" fill="#dddddd"></path><path d="M553.4 201.4c-6-6-14.1-9.4-22.6-9.4H192c-17.7 0-32 14.3-32 32v704c0 17.7 14.3 32 32 32h512c17.7 0 32-14.3 32-32V397.3c0-8.5-3.4-16.6-9.4-22.6L553.4 201.4zM568 753c0 3.8-3.4 7-7.5 7h-225c-4.1 0-7.5-3.2-7.5-7v-42c0-3.8 3.4-7 7.5-7h225c4.1 0 7.5 3.2 7.5 7v42z m0-220c0 3.8-3.4 7-7.5 7H476v84.9c0 3.9-3.1 7.1-7 7.1h-42c-3.8 0-7-3.2-7-7.1V540h-84.5c-4.1 0-7.5-3.2-7.5-7v-42c0-3.9 3.4-7 7.5-7H420v-84.9c0-3.9 3.2-7.1 7-7.1h42c3.9 0 7 3.2 7 7.1V484h84.5c4.1 0 7.5 3.1 7.5 7v42z" p-id="8983" fill="#dddddd"></path></svg></span>
+    <p>训练</p>
+  </a>
+  <a href="{{ url('contest_main')}} " class="vernav__item">
+    <span class="vernav__item__logo"><svg t="1705024904195" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="7486" width="200" height="200"><path d="M597.479619 154.063238V852.358095h52.150857V320.658286l169.252572 58.88a56.32 56.32 0 0 1 25.795047 42.959238l0.170667 4.388571V852.358095H902.095238V926.47619H121.904762v-74.093714h56.953905v-566.613333c0-19.456 10.166857-37.546667 26.843428-47.85981l304.444953-131.705904c38.034286-23.503238 87.332571 3.510857 87.332571 47.859809zM471.771429 482.816l-167.107048 68.266667v80.115809l167.107048-68.242286v-80.14019z m0-175.225905L304.664381 377.904762v80.530286l167.107048-70.339048v-80.457143z" p-id="7487" fill="#dddddd"></path></svg></span>
+    <p>比赛</p>
+  </a>
+  <a href="{{ url('homework_main')}} " class="vernav__item">
+    <span class="vernav__item__logo"><svg t="1705065289251" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="9150" width="200" height="200"><path d="M880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32zM257.7 752c2 0 4-0.2 6-0.5L431.9 722c2-0.4 3.9-1.3 5.3-2.8l423.9-423.9c3.9-3.9 3.9-10.2 0-14.1L694.9 114.9c-1.9-1.9-4.4-2.9-7.1-2.9s-5.2 1-7.1 2.9L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2c-1.9 11.1 1.5 21.9 9.4 29.8 6.6 6.4 14.9 9.9 23.8 9.9z" p-id="9151" fill="#dddddd"></path></svg></span>
+    <p>作业</p>
+  </a>
+  <a href="{{ url('record_main', uidOrName=handler.user._id)}}?uidOrName={{ handler.user._id }}" class="vernav__item">
+    <span class="vernav__item__logo"><svg t="1705065207442" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="8948" width="200" height="200"><path d="M832 64H192c-17.7 0-32 14.3-32 32v224h704V96c0-17.7-14.3-32-32-32zM456 216c0 4.4-3.6 8-8 8H264c-4.4 0-8-3.6-8-8v-48c0-4.4 3.6-8 8-8h184c4.4 0 8 3.6 8 8v48zM160 928c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V704H160v224z m576-136c22.1 0 40 17.9 40 40s-17.9 40-40 40-40-17.9-40-40 17.9-40 40-40zM160 640h704V384H160v256z m96-152c0-4.4 3.6-8 8-8h184c4.4 0 8 3.6 8 8v48c0 4.4-3.6 8-8 8H264c-4.4 0-8-3.6-8-8v-48z" p-id="8949" fill="#dddddd"></path></svg></span>
+    <p>评测</p>
+  </a>
+  <a href="{{ url('ranking')}} " class="vernav__item">
+    <span class="vernav__item__logo"><svg t="1705064962323" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="8565" id="mx_n_1705064962323" width="200" height="200"><path d="M888 792H200V168c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v688c0 4.4 3.6 8 8 8h752c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8z" p-id="8566" fill="#dddddd"></path><path d="M272 728h536c4.4 0 8-3.6 8-8V284c0-7.2-8.7-10.7-13.7-5.7L592 488.6l-125.4-124c-3.1-3.1-8.2-3.1-11.3 0l-189 189.6c-1.5 1.5-2.3 3.5-2.3 5.6V720c0 4.4 3.6 8 8 8z" p-id="8567" fill="#dddddd"></path></svg></span>
+    <p>排名</p>
+  </a>
+</div>
+
 <nav class="nav slideout-menu" id="menu">
-  <div class="row"><div class="columns clearfix">
-    <ol class="nav__list nav__list--main clearfix">
-      <li class="nav__list-item">
-        <a href="/"><img class="nav__logo" src="{{ UiContext.domain.nav_logo_dark or UiContext.nav_logo_dark }}"></a>
-      </li>
-      {%- for item in overrideNav|default(ui.getNodes('Nav')) -%}{% if item.checker(handler) %}
-        {{ nav_item(item) }}
-      {% endif %}{%- endfor -%}
-    </ol>
-    <ol class="nav__list nav__list--secondary clearfix">
-    {% if not handler.user.hasPriv(PRIV.PRIV_USER_PROFILE) %}
-      <li class="nav__list-item"><a href="{{ url('user_login') }}" class="nav__item" name="nav_login">{{ _('Login') }}</a></li>
-      {% if handler.user.hasPriv(PRIV.PRIV_REGISTER_USER) %}
-      <li class="nav__list-item"><a href="{{ url('user_register') }}" class="nav__item--round">{{ _('Sign Up') }}</a></li>
-      {% endif %}
-      <li class="nav__list-item nojs--hide" data-dropdown-pos="bottom right" data-dropdown-custom-class="nav__dropdown" data-dropdown-target="#menu-nav-user" data-dropdown-disabledconstrainToWindow data-dropdown-trigger-desktop-only>
-        <a href="javascript:;" class="nav__item">
-          <span class="icon icon-global"></span>Language <span class="icon icon-expand_more"></span>
-        </a>
-        <ol class="dropdown-target menu" id="menu-nav-user">
-          {%- for k, v in model.setting.SETTINGS_BY_KEY['viewLang'].range -%}
-            <li class="menu__item"><a class="menu__link" href="{{ url('switch_language', lang=k) }}">{{ v }}</a></li>
-          {%- endfor -%}
-        </ol>
-      </li>
-    {% else %}
-    {% if model.system.get('ui-default.domainNavigation') %}
-      <li class="nav__list-item" data-dropdown-pos="bottom right" data-dropdown-custom-class="nav__dropdown" data-dropdown-target="#menu-nav-domain" data-dropdown-disabledconstrainToWindow data-dropdown-trigger-desktop-only>
-        <span class="nav__item"><span class="icon"><img class="small user-profile-avatar v-center" loading="lazy" src="{{ avatarUrl(UiContext.domain.avatar|default('')) }}" width="20" height="20"></span> {{ UiContext.domain.name }} <span class="icon icon-expand_more nojs--hide"></span></span>
-        <ol class="dropdown-target menu" id="menu-nav-domain">
-          {%- if handler.user.domains|length -%}
-          {%- for ddoc in handler.user.domains -%}
+  <div class="nav__container">
+    <div class="nav__header">
+      <a href="/"><img src="https://tboj.cn/ui/logo.png" alt="logo"></a>
+    </div>
+    <div class="nav__userbar">
+      {% if handler.user.hasPriv(PRIV.PRIV_USER_PROFILE) %}
+        {% if handler.user.hasPriv(PRIV.PRIV_CREATE_FILE) %}
+          <a style="margin-right: 1em" href="{{ url('home_files') }}"><svg t="1705029146581" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="10799" id="mx_n_1705029146583" width="18" height="18"><path d="M811.4 418.7C765.6 297.9 648.9 212 512.2 212S258.8 297.8 213 418.6C127.3 441.1 64 519.1 64 612c0 110.5 89.5 200 199.9 200h496.2C870.5 812 960 722.5 960 612c0-92.7-63.1-170.7-148.6-193.3z m36.3 281c-23.4 23.4-54.5 36.3-87.6 36.3H263.9c-33.1 0-64.2-12.9-87.6-36.3-23.4-23.4-36.3-54.6-36.3-87.7 0-28 9.1-54.3 26.2-76.3 16.7-21.3 40.2-36.8 66.1-43.7l37.9-9.9 13.9-36.6c8.6-22.8 20.6-44.1 35.7-63.4 14.9-19.2 32.6-35.9 52.4-49.9 41.1-28.9 89.5-44.2 140-44.2s98.9 15.3 140 44.2c19.9 14 37.5 30.8 52.4 49.9 15.1 19.3 27.1 40.7 35.7 63.4l13.8 36.5 37.8 10c54.3 14.5 92.1 63.8 92.1 120 0 33.1-12.9 64.3-36.3 87.7z" p-id="10800"></path></svg></a>
+        {% endif %}
+        {% if handler.user.hasPriv(PRIV.PRIV_EDIT_SYSTEM) %}
+          <a style="margin-right: 1em" href="{{ url('manage_dashboard') }}"><svg t="1705029230007" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="10930" width="16" height="16"><path d="M320 224h-66v-56c0-4.4-3.6-8-8-8h-52c-4.4 0-8 3.6-8 8v56h-66c-4.4 0-8 3.6-8 8v560c0 4.4 3.6 8 8 8h66v56c0 4.4 3.6 8 8 8h52c4.4 0 8-3.6 8-8v-56h66c4.4 0 8-3.6 8-8V232c0-4.4-3.6-8-8-8z m-60 508h-80V292h80v440zM904 296h-66v-96c0-4.4-3.6-8-8-8h-52c-4.4 0-8 3.6-8 8v96h-66c-4.4 0-8 3.6-8 8v416c0 4.4 3.6 8 8 8h66v96c0 4.4 3.6 8 8 8h52c4.4 0 8-3.6 8-8v-96h66c4.4 0 8-3.6 8-8V304c0-4.4-3.6-8-8-8z m-60 364h-80V364h80v296zM612 404h-66V232c0-4.4-3.6-8-8-8h-52c-4.4 0-8 3.6-8 8v172h-66c-4.4 0-8 3.6-8 8v200c0 4.4 3.6 8 8 8h66v172c0 4.4 3.6 8 8 8h52c4.4 0 8-3.6 8-8V620h66c4.4 0 8-3.6 8-8V412c0-4.4-3.6-8-8-8z m-60 145c0 1.6-1.3 3-3 3h-74c-1.6 0-3-1.3-3-3v-74c0-1.6 1.3-3 3-3h74c1.6 0 3 1.3 3 3v74z" p-id="10931"></path></svg></a>
+        {% endif %}
+        <a style="margin-right: 1em" href="{{ url('home_messages') }}"><svg t="1705028869676" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="10166" width="16" height="16"><path d="M512 512m-48 0a48 48 0 1 0 96 0 48 48 0 1 0-96 0Z" p-id="10167"></path><path d="M712 512m-48 0a48 48 0 1 0 96 0 48 48 0 1 0-96 0Z" p-id="10168"></path><path d="M312 512m-48 0a48 48 0 1 0 96 0 48 48 0 1 0-96 0Z" p-id="10169"></path><path d="M925.2 338.4c-22.6-53.7-55-101.9-96.3-143.3-41.3-41.3-89.5-73.8-143.3-96.3C630.6 75.7 572.2 64 512 64h-2c-60.6 0.3-119.3 12.3-174.5 35.9-53.3 22.8-101.1 55.2-142 96.5-40.9 41.3-73 89.3-95.2 142.8-23 55.4-34.6 114.3-34.3 174.9 0.3 69.4 16.9 138.3 48 199.9v152c0 25.4 20.6 46 46 46h152.1c61.6 31.1 130.5 47.7 199.9 48h2.1c59.9 0 118-11.6 172.7-34.3 53.5-22.3 101.6-54.3 142.8-95.2 41.3-40.9 73.8-88.7 96.5-142 23.6-55.2 35.6-113.9 35.9-174.5 0.3-60.9-11.5-120-34.8-175.6z m-151.1 438C704 845.8 611 884 512 884h-1.7c-60.3-0.3-120.2-15.3-173.1-43.5l-8.4-4.5H188V695.2l-4.5-8.4C155.3 633.9 140.3 574 140 513.7c-0.4-99.7 37.7-193.3 107.6-263.8 69.8-70.5 163.1-109.5 262.8-109.9h1.7c50 0 98.5 9.7 144.2 28.9 44.6 18.7 84.6 45.6 119 80 34.3 34.3 61.3 74.4 80 119 19.4 46.2 29.1 95.2 28.9 145.8-0.6 99.6-39.7 192.9-110.1 262.7z" p-id="10170"></path></svg></a>
+        <li class="nav__list-item" data-dropdown-pos="bottom right" data-dropdown-custom-class="nav__dropdown" data-dropdown-target="#menu-nav-user" data-dropdown-disabledconstrainToWindow data-dropdown-trigger-desktop-only>
+          <a href="{{ url('user_detail', uid=handler.user._id) }}"><img class="user-profile-avatar v-center" loading="lazy" src="{{ avatarUrl(handler.user.avatar|default('')) }}" width="40" height="40"></a>
+          <ol class="dropdown-target menu" style id="menu-nav-user">
             <li class="menu__item">
-              <a href="{{ url('homepage', domainId=ddoc['_id']) }}" class="menu__link">
-                <span class="icon"><img class="small user-profile-avatar v-center" loading="lazy" src="{{ avatarUrl(ddoc.avatar|default('')) }}" width="20" height="20"></span>
-                {{ ddoc['name'] }}{% if ddoc['name'] != ddoc['_id']%} ({{ ddoc['_id'] }}){% endif %}
+              <a href="{{ url('user_detail', uid=handler.user._id) }}" class="menu__link">
+                <span class="icon icon-account--circle"></span> {{ _('My Profile') }}
               </a>
             </li>
-          {%- endfor -%}
-          <li class="menu__seperator"></li>
-          {%- endif -%}
-          <li class="menu__item">
-            <a href="{{ url('home_domain') }}" class="menu__link">
-              <span class="icon icon-wrench"></span> {{ _('Manage') }}
-            </a>
-          </li>
-        </ol>
-      </li>
-    {% endif %}
-      <li class="nav__list-item" data-dropdown-pos="bottom right" data-dropdown-custom-class="nav__dropdown" data-dropdown-target="#menu-nav-user" data-dropdown-disabledconstrainToWindow data-dropdown-trigger-desktop-only>
-        <a href="{{ url('user_detail', uid=handler.user._id) }}" class="nav__item">{{ handler.user.uname }} <span class="icon icon-expand_more nojs--hide"></span></a>
-        <ol class="dropdown-target menu" id="menu-nav-user">
-          <li class="menu__item">
-            <a href="{{ url('user_detail', uid=handler.user._id) }}" class="menu__link">
-              <span class="icon icon-account--circle"></span> {{ _('My Profile') }}
-            </a>
-          </li>
-          <li class="menu__item">
-            <a href="{{ url('home_messages') }}" class="menu__link">
-              <span class="icon icon-comment--multiple"></span> {{ _('home_messages') }}
-            </a>
-          </li>
-          <li class="menu__seperator"></li>
-          <li class="menu__item">
-            <a href="{{ url('home_settings', category='domain') }}" class="menu__link">
-              <span class="icon icon-web"></span> @ {{ handler.domain['name'] }}
-            </a>
-          </li>
-          <li class="menu__seperator"></li>
-          <li class="menu__item">
-            <a href="{{ url('home_settings', category='account') }}" class="menu__link">
-              <span class="icon icon-wrench"></span> {{ _('home_account') }}
-            </a>
-          </li>
-          <li class="menu__item">
-            <a href="{{ url('home_settings', category='preference') }}" class="menu__link">
-              <span class="icon icon-sliders"></span> {{ _('home_preference') }}
-            </a>
-          </li>
-          <li class="menu__item">
-            <a href="{{ url('home_security') }}" class="menu__link">
-              <span class="icon icon-security"></span> {{ _('home_security') }}
-            </a>
-          </li>
-          <li class="menu__seperator"></li>
-          <li class="menu__item">
-            <a href="{{ url('home_domain') }}" class="menu__link">
-              <span class="icon icon-web"></span> {{ _('My Domains') }}
-            </a>
-          </li>
-          {% if handler.user.hasPriv(PRIV.PRIV_CREATE_FILE) %}
             <li class="menu__item">
-              <a href="{{ url('home_files') }}" class="menu__link">
-                <span class="icon icon-file"></span> {{ _('My Files') }}
+              <a href="{{ url('home_messages') }}" class="menu__link">
+                <span class="icon icon-comment--multiple"></span> {{ _('home_messages') }}
               </a>
             </li>
-          {% endif %}
-          {% if ui.getNodes('UserDropdown').length %}
             <li class="menu__seperator"></li>
-            {%- for item in ui.getNodes('UserDropdown') -%}
-            <li class="menu__item nojs--hide">
-              {% set args = (item.args(handler) if typeof(item.args)=='function' else item.args) or {} %}
-              <a href="{{ url(item.name, args) }}" class="menu__link">
-                <span class="icon icon-{{ args.icon }}"></span> {{ _(args.displayName or item.name) }}
+            <li class="menu__item">
+              <a href="{{ url('home_settings', category='account') }}" class="menu__link">
+                <span class="icon icon-wrench"></span> {{ _('home_account') }}
               </a>
             </li>
-            {%- endfor -%}
-          {% endif %}
-          <li class="menu__seperator"></li>
-          {% if handler.user.hasPriv(PRIV.PRIV_EDIT_SYSTEM) %}
-            <li class="menu__item nojs--hide">
-              <a class="menu__link" name="nav_switch_account">
-                <span class="icon icon-user"></span> {{ _('Switch account') }}
+            <li class="menu__item">
+              <a href="{{ url('home_settings', category='preference') }}" class="menu__link">
+                <span class="icon icon-sliders"></span> {{ _('home_preference') }}
               </a>
             </li>
-          {% endif %}
-          <li class="menu__item">
-            <a href="{{ url('user_logout') }}" class="menu__link" name="nav_logout">
-              <span class="icon icon-logout"></span> {{ _('Logout') }}
-            </a>
-          </li>
-        </ol>
-      </li>
-    {% endif %}
-    </ol>
-  </div></div>
+            <li class="menu__item">
+              <a href="{{ url('home_security') }}" class="menu__link">
+                <span class="icon icon-security"></span> {{ _('home_security') }}
+              </a>
+            </li>
+            {% if handler.user.hasPriv(PRIV.PRIV_CREATE_FILE) %}
+              <li class="menu__item">
+                <a href="{{ url('home_files') }}" class="menu__link">
+                  <span class="icon icon-file"></span> {{ _('My Files') }}
+                </a>
+              </li>
+            {% endif %}
+            {% if ui.getNodes('UserDropdown').length %}
+              <li class="menu__seperator"></li>
+              {%- for item in ui.getNodes('UserDropdown') -%}
+              <li class="menu__item nojs--hide">
+                {% set args = (item.args(handler) if typeof(item.args)=='function' else item.args) or {} %}
+                <a href="{{ url(item.name, args) }}" class="menu__link">
+                  <span class="icon icon-{{ args.icon }}"></span> {{ _(args.displayName or item.name) }}
+                </a>
+              </li>
+              {%- endfor -%}
+            {% endif %}
+            <li class="menu__seperator"></li>
+            {% if handler.user.hasPriv(PRIV.PRIV_EDIT_SYSTEM) %}
+              <li class="menu__item nojs--hide">
+                <a class="menu__link" name="nav_switch_account">
+                  <span class="icon icon-user"></span> {{ _('Switch account') }}
+                </a>
+              </li>
+            {% endif %}
+            <li class="menu__item">
+              <a href="{{ url('user_logout') }}" class="menu__link" name="nav_logout">
+                <span class="icon icon-logout"></span> {{ _('Logout') }}
+              </a>
+            </li>
+          </ol>
+        </li>
+      {% else %}
+        <a href="javascript:showSignInDialog();">Log In</a>
+      {% endif %}
+    </div>
+  </div>
 </nav>
-<nav class="nav--shadow"></nav>
+

@@ -4,11 +4,9 @@ import $ from 'jquery';
 import _ from 'lodash';
 import responsiveCutoff from 'vj/breakpoints.json';
 import { AutoloadPage } from 'vj/misc/Page';
-import { isAbove, isBelow } from 'vj/utils/mediaQuery';
+import { isAbove } from 'vj/utils/mediaQuery';
 
-const navHeight = isBelow(responsiveCutoff.mobile)
-  ? 0
-  : $('.nav').height();
+const navHeight = 0;
 
 function updateStickies($stickies) {
   $stickies.get().forEach((element) => {

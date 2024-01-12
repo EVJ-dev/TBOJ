@@ -181,7 +181,6 @@ export async function load() {
                 console.log('');
                 console.log('Hydro will start in 5s.');
                 console.log('Hydro 将在五秒后继续启动。');
-                await sleep(5000);
             }
         }
     } catch (e) { }
