@@ -1,0 +1,48 @@
+<div class="section">
+    <div class="section__header">
+        <h1 class="section__title">帐号信息</h1>
+    </div>
+    <div class="section__body typo">
+        <table><tbody><tr>
+            <td style="width: 40%;">
+                <img style="width: 100%; max-width: 100%;" src="{{ avatarUrl(handler.user.avatar|default('')) }}" alt="avatar" />
+            </td>
+            <td valign="top" style="text-align: center; width: 60%;">
+                <p><span style="font-weight: bold">{{handler.user.uname}}</span></p>
+                <p><span>通过 {{handler.user.nAccept}} 尝试 {{handler.user.nSubmit}}</span></p>
+            </td>
+        </tr></tbody></table>
+        <p>
+        {% if handler.user.hasPerm(perm.PERM_CREATE_PROBLEM) %}
+            <span style="background-color: #fb5438; font-weight: bold; color: white;" class="bp5-tag bp5-large bp5-minimal problem__tag-item">
+                题目管理员
+            </span>
+        {% endif %}
+        {% if handler.user.hasPerm(perm.PERM_REJUDGE) %}
+            <span style="background-color: #209eff; font-weight: bold; color: white;" class="bp5-tag bp5-large bp5-minimal problem__tag-item">
+                记录管理员
+            </span>
+        {% endif %}
+        {% if handler.user.hasPerm(perm.PERM_DELETE_PROBLEM_SOLUTION) %}
+            <span style="background-color: #ffc64c; font-weight: bold; color: white;" class="bp5-tag bp5-large bp5-minimal problem__tag-item">
+                题解管理员
+            </span>
+        {% endif %}
+        {% if handler.user.hasPerm(perm.PERM_CREATE_CONTEST) %}
+            <span style="background-color: #00B800; font-weight: bold; color: white;" class="bp5-tag bp5-large bp5-minimal problem__tag-item">
+                比赛管理员
+            </span>
+        {% endif %}
+        {% if handler.user.hasPerm(perm.PERM_DELETE_DISCUSSION) %}
+            <span style="background-color: #297375; font-weight: bold; color: white;" class="bp5-tag bp5-large bp5-minimal problem__tag-item">
+                讨论管理员
+            </span>
+        {% endif %}
+        {% if handler.user.hasPerm(perm.PERM_CREATE_HOMEWORK) %}
+            <span style="background-color: #C40889; font-weight: bold; color: white;" class="bp5-tag bp5-large bp5-minimal problem__tag-item">
+                作业管理员
+            </span>
+        {% endif %}
+        </p>
+    </div>
+</div>
