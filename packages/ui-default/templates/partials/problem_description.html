@@ -4,6 +4,11 @@
       <p>{{ _('No {0} at current.').format(_("testdata")) }}</p>
     </blockquote>
   {% endif %}
+  {% if pdoc.config.type == 'default' and pdoc.config.subType %}
+    <blockquote class="note">
+      <p>本题需要文件输入输出，请从 <code>{{pdoc.config.subType}}.in</code> 中读入数据，并将答案输出到 <code>{{pdoc.config.subType}}.out</code> 中。</p>
+    </blockquote>
+  {% endif %}
   {% if typeof(pdoc.config) == 'string' %}
     <blockquote class="warn">
       <p>{{ pdoc.config }}</p>

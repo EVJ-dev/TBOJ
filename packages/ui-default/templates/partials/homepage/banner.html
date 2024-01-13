@@ -1,0 +1,22 @@
+<link rel="stylesheet" href="https://unpkg.zhimg.com/swiper@8/swiper-bundle.css">  
+<link rel="stylesheet" href="https://unpkg.zhimg.com/swiper@8/swiper-bundle.min.css">    
+<script src="https://unpkg.zhimg.com/swiper@8/swiper-bundle.js"> </script>  
+<script src="https://unpkg.zhimg.com/swiper@8/swiper-bundle.min.js"> </script>
+<script src="https://unpkg.zhimg.com/swiper@8/swiper-bundle.min.js.map"> </script>
+
+<div class="section">
+    <div class="section__body no-padding">
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                {% for pic in payload %}
+                    <div class="swiper-slide"><a href="{{pic.link}}"><img src="{{pic.src}}" alt="Banner_Pic" /></a></div>
+                {% endfor %}
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var mySwiper=new Swiper('.swiper',{autoplay:{delay: 3000},pagination:{el:".swiper-pagination"},loop:true});
+</script>
