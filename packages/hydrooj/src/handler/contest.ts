@@ -240,6 +240,50 @@ export class ContestDetailHandler extends Handler {
                 checker: () => 'pdoc' in this,
             },
         ];
+
+        const hasPerm = this.user.own(this.tdoc) ? this.user.hasPerm(PERM.PERM_EDIT_CONTEST_SELF) : this.user.hasPerm(PERM.PERM_EDIT_CONTEST);
+
+        if (!hasPerm && contest.isNotStarted(this.tdoc)) return;
+        if (!hasPerm && !contest.isDone(this.tdoc) && !this.tsdoc?.attend) return;
+        this.response.body.showList = true;
+        const [pdict, _udict, tcdocs] = await Promise.all([
+            problem.getList(domainId, this.tdoc.pids, true, true, problem.PROJECTION_CONTEST_LIST),
+            user.getList(domainId, [this.tdoc.owner, this.user._id]),
+            contest.getMultiClarification(domainId, tid, this.user._id),
+        ]);
+        this.response.body = {
+            ...this.response.body,
+            pdict,
+            psdict: {},
+            udict: _udict,
+            rdict: {},
+            tdoc: this.tdoc,
+            tsdoc: this.tsdoc,
+            tcdocs,
+        };
+        if (!this.tsdoc) return;
+        if (this.tsdoc.attend && !this.tsdoc.startAt && contest.isOngoing(this.tdoc)) {
+            await contest.setStatus(domainId, tid, this.user._id, { startAt: new Date() });
+            this.tsdoc.startAt = new Date();
+        }
+        this.response.body.psdict = this.tsdoc.detail || {};
+        const psdocs: any[] = Object.values(this.response.body.psdict);
+        if (contest.canShowSelfRecord.call(this, this.tdoc)) {
+            [this.response.body.rdict, this.response.body.rdocs] = await Promise.all([
+                record.getList(domainId, psdocs.map((i: any) => i.rid)),
+                await record.getMulti(domainId, { contest: tid, uid: this.user._id })
+                    .sort({ _id: -1 }).toArray(),
+            ]);
+            if (!this.user.own(this.tdoc) && !this.user.hasPerm(PERM.PERM_EDIT_CONTEST)) {
+                this.response.body.rdocs = this.response.body.rdocs.map((rdoc) => contest.applyProjection(this.tdoc, rdoc, this.user));
+                for (const psdoc of psdocs) {
+                    this.response.body.rdict[psdoc.rid] = contest.applyProjection(this.tdoc, this.response.body.rdict[psdoc.rid], this.user);
+                }
+            }
+            this.response.body.canViewRecord = true;
+        } else {
+            for (const i of psdocs) this.response.body.rdict[i.rid] = { _id: i.rid };
+        }
     }
 
     @param('tid', Types.ObjectId)
@@ -249,6 +293,24 @@ export class ContestDetailHandler extends Handler {
         if (contest.isDone(this.tdoc)) throw new ContestNotLiveError(tid);
         if (this.tdoc._code && code !== this.tdoc._code) throw new InvalidTokenError('Contest Invitation', code);
         await contest.attend(domainId, tid, this.user._id);
+        this.back();
+    }
+
+    @param('tid', Types.ObjectId)
+    @param('content', Types.Content)
+    @param('subject', Types.Int)
+    async postClarification(domainId: string, tid: ObjectId, content: string, subject: number) {
+        if (!this.tsdoc?.attend) throw new ContestNotAttendedError(domainId, tid);
+        if (!contest.isOngoing(this.tdoc)) throw new ContestNotLiveError(domainId, tid);
+        await this.limitRate('add_discussion', 3600, 60);
+        await contest.addClarification(domainId, tid, this.user._id, content, this.request.ip, subject);
+        if (!this.user.own(this.tdoc)) {
+            await Promise.all([this.tdoc.owner, ...this.tdoc.maintainer].map((uid) => message.send(1, uid, JSON.stringify({
+                message: 'Contest {0} has a new clarification about {1}, please go to contest management to reply.',
+                params: [this.tdoc.title, subject > 0 ? `#${this.tdoc.pids.indexOf(subject) + 1}` : 'the contest'],
+                url: this.url('contest_manage', { tid }),
+            }), message.FLAG_I18N | message.FLAG_UNREAD)));
+        }
         this.back();
     }
 }
