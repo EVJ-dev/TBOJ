@@ -4,8 +4,11 @@
 {% block content %}
   <div class="row">
     <div class="medium-9 columns">
-      <div class="section display-mode">
-        <div class="section__body no-padding">
+      <div class="section">
+        <div class="section__header">
+          <h1 class="section__title">搜索题目</h1>
+        </div>
+        <div class="section__body">
           <form method="get" id="searchForm" action="{{ url('problem_main') }}">
             <div class="search">
               <input name="q" type="text" value="{{ qs }}" placeholder="{{ _('Search') }}">
@@ -16,6 +19,8 @@
             </div>
           </form>
         </div>
+      </div>
+      <div class="section">
         <div class="section__body no-padding">
           {% include "partials/problem_list.html" %}
         </div>

@@ -32,3 +32,19 @@
   {%- if show_none_label -%}{{ _('(None)') }}{%- endif -%}
 {%- endif -%}
 {% endmacro %}
+
+{% macro render_difficulty(diff, short=false) %}
+  {% set diff_name = ['暂无评定', '入门', '普及-', '普及/提高-', '普及+/提高', '提高+/省选-', '省选/NOI-', 'NOI/NOI+'] %}
+  {% set diff_short_name = ['无', '入门', '普及-', '普及', '提高', '提高+', '省选', 'NOI'] %}
+  {% set diff_color = ['rgb(191, 191, 191)', 'rgb(254, 76, 97)', 'rgb(243, 156, 17)', 'rgb(255, 193, 22)', 'rgb(82, 196, 26)', 'rgb(52, 152, 219)', 'rgb(157, 61, 207)', 'rgb(14, 29, 105)'] %}
+
+  {% if not diff or diff <= 0 or diff >= 8 %}
+    {% set diff = 0 %}
+  {% endif %}
+
+  {% if short %}
+    <span style="color: {{diff_color[diff]}}">{{diff_short_name[diff]}}</span>
+  {% else %}
+    <span style="background-color: {{diff_color[diff]}}; color: white; font-weight: bold;" class="bp5-tag bp5-large bp5-minimal problem__tag-item">{{diff_name[diff]}}</span>
+  {% endif %}
+{% endmacro %}
