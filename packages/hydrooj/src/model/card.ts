@@ -102,7 +102,7 @@ export class CardModel {
             randNumber -= allowedCards[now].weight;
             now++;
         }
-        if (udoc.cards.find((card) => card[0] === allowedCards[now]._id)) {
+        if (udoc.cards.find((card) => card[0].toString() === allowedCards[now]._id.toString())) {
             udoc.day++;
             udoc.luck++;
         } else {
