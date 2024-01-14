@@ -16,6 +16,7 @@ import * as useragent from '../lib/useragent';
 import { verifyTFA } from '../lib/verifyTFA';
 import BlackListModel from '../model/blacklist';
 import { PERM, PRIV } from '../model/builtin';
+import { CardModel } from '../model/card';
 import * as contest from '../model/contest';
 import * as discussion from '../model/discussion';
 import domain from '../model/domain';
@@ -145,6 +146,30 @@ export class HomeHandler extends Handler {
         return discussion.getNodes(domainId);
     }
 
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    async getCard(domainId: string) {
+        if (!this.user.hasPriv(PRIV.PRIV_USER_PROFILE)) return undefined;
+        const card = await CardModel.getLast(this.user._id);
+        if (!card) return undefined;
+        const isAvailable = (card[1].toDateString() !== new Date().toDateString());
+        if (!isAvailable) {
+            return {
+                html: await this.renderHTML('partials/card_result.html', {
+                    payload: {
+                        card: await CardModel.get(card[0]),
+                        udoc: await CardModel.getUser(this.user._id),
+                        Date,
+                        cardTimes: await CardModel.getTimes(this.user._id, card[0]),
+                    },
+                }),
+            };
+        }
+        return {
+            card: card[0].toString(),
+            isAvailable,
+        };
+    }
+
     async get({ domainId }) {
         const homepageConfig = this.domain.homepage || system.get('hydrooj.homepage');
         const info = yaml.load(homepageConfig) as any;
@@ -175,6 +200,29 @@ export class HomeHandler extends Handler {
             contents,
             udict,
             domain: this.domain,
+        };
+    }
+
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    async postGetCard(domainId: string) {
+        const card = await CardModel.random(this.user._id);
+        this.response.body = {
+            html: await this.renderHTML('partials/card_result.html', {
+                payload: {
+                    card: await CardModel.get(card),
+                    udoc: await CardModel.getUser(this.user._id),
+                    Date,
+                    cardTimes: await CardModel.getTimes(this.user._id, card),
+                },
+            }),
+        };
+    }
+
+    async postGetCardInfo(domainId: string, cardId: string) {
+        const card = await CardModel.get(new ObjectId(cardId));
+        this.response.body = {
+            ...card,
+            cardTimes: await CardModel.getTimes(this.user._id, card._id),
         };
     }
 }

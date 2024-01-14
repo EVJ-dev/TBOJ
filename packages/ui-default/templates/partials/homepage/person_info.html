@@ -1,3 +1,4 @@
+{% if handler.user.hasPriv(PRIV.PRIV_USER_PROFILE) %}
 <div class="section">
     <div class="section__header">
         <h1 class="section__title">帐号信息</h1>
@@ -46,3 +47,4 @@
         </p>
     </div>
 </div>
+{% endif %}

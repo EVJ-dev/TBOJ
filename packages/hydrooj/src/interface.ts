@@ -8,6 +8,7 @@ import type { Context } from './context';
 import type { DocStatusType } from './model/document';
 import type { ProblemDoc } from './model/problem';
 import type { Handler } from './service/server';
+import { CardDoc, UserCardDoc } from './model/card';
 
 type document = typeof import('./model/document');
 
@@ -683,6 +684,7 @@ export interface ContestBalloonDoc {
 declare module './service/db' {
     interface Collections {
         'blacklist': BlacklistDoc;
+        'card': CardDoc | UserCardDoc;
         'domain': DomainDoc;
         'domain.user': any;
         'record': RecordDoc;

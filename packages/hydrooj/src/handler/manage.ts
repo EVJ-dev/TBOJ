@@ -8,6 +8,7 @@ import {
 } from '../error';
 import { Logger } from '../logger';
 import { PRIV, STATUS } from '../model/builtin';
+import { CardDocType, CardModel } from '../model/card';
 import domain from '../model/domain';
 import record from '../model/record';
 import * as setting from '../model/setting';
@@ -279,6 +280,24 @@ class SystemUserImportHandler extends SystemHandler {
         this.response.body.messages = messages;
     }
 }
+
+class SystemCardManageHandler extends SystemHandler {
+    async get() {
+        this.response.template = 'manage_card.html';
+        this.response.body = {
+            cards: await CardModel.getMany({ type: CardDocType.CARD_TYPE_CARD }).toArray(),
+        };
+    }
+
+    async postAdd() {
+        const {
+            description, picture, level, weight,
+        } = this.request.body;
+        await CardModel.add(description, picture, parseInt(level, 10), parseInt(weight, 10));
+        this.back();
+    }
+}
+
 /* eslint-enable no-await-in-loop */
 
 const Priv = omit(PRIV, ['PRIV_DEFAULT', 'PRIV_NEVER', 'PRIV_NONE', 'PRIV_ALL']);
@@ -327,5 +346,6 @@ export async function apply(ctx) {
     ctx.Route('manage_config', '/manage/config', SystemConfigHandler);
     ctx.Route('manage_user_import', '/manage/userimport', SystemUserImportHandler);
     ctx.Route('manage_user_priv', '/manage/userpriv', SystemUserPrivHandler);
+    ctx.Route('manage_card', '/manage/card', SystemCardManageHandler);
     ctx.Connection('manage_check', '/manage/check-conn', SystemCheckConnHandler);
 }

@@ -1,0 +1,87 @@
+{% extends "manage_base.html" %}
+{% block manage_content %}
+<div class="section">
+  <div class="section__body">
+    <div class="section__list">
+      <div class="section__header">
+        <h1 class="section__title">卡片管理 （删除暂不可用）</h1>
+      </div>
+      <div class="section__list__item">
+        <div style="margin-top: -20px;" class="section__table-container">
+          <table class="data-table section__table-header">
+            <colgroup>
+              <col class="col--picture">
+              <col class="col--weight">
+              <col class="col--level">
+              <col class="col--description">
+              <col class="col--action">
+            </colgroup>
+            <thead>
+              <tr><td class="col--picture">图片</td>
+              <td class="col--weight">权重</td>
+              <td class="col--level">等级</td>
+              <td class="col--description">介绍</td>
+              <td class="col--action">操作</td></tr>
+            </thead>
+          </table>
+          <table class="data-table">
+            <colgroup>
+              <col class="col--picture">
+              <col class="col--weight">
+              <col class="col--level">
+              <col class="col--description">
+              <col class="col--action">
+            </colgroup>
+            <tbody>
+              {% for card in cards %}
+                <tr><td class="col--picture"><img src="{{card.picture}}" alt="pic" style="max-width: 100%"/></td>
+                <td class="col--weight">{{card.weight}}</td>
+                <td class="col--level">{{card.level}}</td>
+                <td class="col--description">{{card.description}}</td>
+                <td class="col--action"><a class="diabled" data-cid="{{card._id.toString()}}" name="card_delete">删除</a></td></tr>
+              {% endfor %}
+            </tbody> 
+          </table>
+        </div>
+      </div>
+      <div class="section__header">
+        <h1 class="section__title">添加卡片</h1>
+      </div>
+      <div class="section__list__item">
+        <div class="">
+          <form  style="margin-top: -10px;" method="post">
+            <input type="hidden" name="operation" value="add" />
+            {{ form.form_text({
+              label: '卡片描述（不宜过长）',
+              name: 'description',
+              autofocus:true,
+              required:true
+            }) }}
+            {{ form.form_text({
+              label: '图片链接',
+              help_text: '可用 img.zshfoj.com 托管，以 https 开头',
+              name: 'picture',
+              autofocus:true,
+              required:true
+            }) }}
+            {{ form.form_text({
+              label: '等级 (1-5)',
+              name: 'level',
+              autofocus:true,
+              required:true
+            }) }}
+            {{ form.form_text({
+              label: '随机权重',
+              help_text: '加权随机时的权重，越大概率越高，支持任意整数',
+              name: 'weight',
+              autofocus:true,
+              required:true
+            }) }}
+            <input type="submit" value="添加" class="rounded primary button" style="margin-bottom: -10px">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% if handler.user.hasPriv(PRIV.PRIV_USER_PROFILE) %}
+<div class="section">
+    <div class="section__header">
+        <h1 class="section__title">每日抽卡</h1>
+    </div>
+    <div class="section__body">
+        {% if payload and payload.html %}
+            {{ payload.html|safe }}
+        {% else %}
+            <div>
+                <button id="getCard"><img style="max-width: 100%;" src="https://img.zshfoj.com/Cards/getCard.jpg" alt="Get_Card"/></button>
+            </div>
+        {% endif %}
+    </div>
+</div>
+{% endif %}
