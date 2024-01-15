@@ -10,7 +10,7 @@
             </td>
             <td valign="top" style="text-align: center; width: 60%;">
                 <p><span style="font-weight: bold">{{handler.user.uname}}</span></p>
-                <p><span>通过 {{handler.user.nAccept}} 尝试 {{handler.user.nSubmit}}</span></p>
+                <p><span>通过 {{handler.user.nAccept || 0}} 尝试 {{handler.user.nSubmit || 0}}</span></p>
             </td>
         </tr></tbody></table>
         <p>
